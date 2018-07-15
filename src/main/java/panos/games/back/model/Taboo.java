@@ -5,6 +5,8 @@
  */
 package panos.games.back.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -20,9 +22,12 @@ public class Taboo {
     private Long id;
     String card;
     String taboo;
+    @ElementCollection(targetClass=String.class)
+    List<String> words;
     Integer plays;
     String added;
     String language;
+    
 	public Long getId() {
 		return id;
 	}
@@ -58,6 +63,12 @@ public class Taboo {
 	}
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+	public List<String> getWords() {
+		return words;
+	}
+	public void setWords(List<String> words) {
+		this.words = words;
 	}
 
 
